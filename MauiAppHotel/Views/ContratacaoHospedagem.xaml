@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppHotel.Views.ContratacaoHospedagem"
+             Title="ContratacaoHospedagem"
+             BackgroundColor="{StaticResource Gray100}">
+    
+    <VerticalStackLayout VerticalOptions="CenterAndExpand"
+                         Padding="10"> <!-- Organiza tudo Verticalmente -->
+        <Label 
+            Text="Cálculo da diária"
+            FontFamily="Kalam"
+            FontSize="50"
+            TextColor="{StaticResource Primary}" /> <!-- Vou usar como um título -->
+
+        <Frame Padding="10">
+            <VerticalStackLayout> <!-- Organiza os elementos dentro do Frame -->
+                
+                <Grid RowDefinitions="auto, auto"
+                      ColumnDefinitions="*, *, 2*"> <!-- Criei um grid para organizar o conteúdo -->
+
+                    <Label Grid.Row="0" Grid.Column="0"
+                           Text="Adultos:" />
+
+                    <Label Grid.Row="0" Grid.Column="1"
+                           TextColor="{StaticResource Primary}"
+                           Text="{Binding Value}" 
+                           BindingContext="{x:Reference stp_adultos}"/> <!-- Binding serve para "amarrar" essa Label com o Stepper com esse x:name -->
+
+                    <Stepper Grid.Row="0" Grid.Column="2"
+                             x:Name="stp_adultos"
+                             Minimum="0"
+                             Maximum="10"
+                             Increment="1" /> <!-- X:name serve para nomear essa caixa -->
+                    
+
+                    <Label Grid.Row="1" Grid.Column="0"
+                           Text="Crianças:" /> <!-- Área das crianças -->
+                    
+                    <Label Grid.Row="1" Grid.Column="1"
+                           TextColor="{StaticResource Primary}"
+                           Text="{Binding Value}"
+                           BindingContext="{x:Reference stp_criancas}"/>
+
+                    <Stepper Grid.Row="1" Grid.Column="2"
+                             x:Name="stp_criancas"
+                             Minimum="0"
+                             Maximum="10"
+                             Increment="1" />
+                </Grid> <!-- Fim Grid -->
+
+                <Label Text="Escolha sua Suíte"/>
+
+                <Picker x:Name="pck_quarto"
+                        Title="Selecione sua acomodação"/> <!-- Opção para selecionar, o x:name serve para capturar a resposta do usuário -->
+
+                <Frame Padding="10"
+                       Margin="10">
+                    <VerticalStackLayout> <!-- Organiza os elementos dentro do Frame na vertical -->
+                        <Label Text="Período da Estadia"/>
+
+                        <HorizontalStackLayout> <!-- Organiza os elementos que estiverem abaixo do Label na horizontal -->
+                            <Label Text="Check-in: "/> <!-- Check-in -->
+                            <DatePicker x:Name="dtpck_checkin"
+                                        Format="dd/MM/yyyy" /> <!-- Format serve para organizar a data em dias, mês e ano -->
+                        </HorizontalStackLayout>
+
+                        <HorizontalStackLayout>
+                            <Label Text="Check-out: "/> <!-- Check-out -->
+                            <DatePicker x:Name="dtpck_checkout"
+                                        Format="dd/MM/yyyy" /> <!-- Data -->
+                        </HorizontalStackLayout>
+
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Button Text="Avançar" /> <!-- Próxima tela -->
+
+            </VerticalStackLayout>
+        </Frame>
+
+    </VerticalStackLayout>
+    
+</ContentPage>

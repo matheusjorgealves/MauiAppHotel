@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using MauiAppHotel.Views;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace MauiAppHotel
 {
