@@ -13,5 +13,11 @@
         Route="ContratacaoHospedagem" />
     <!-- Define a tela inicial para a view ContratacaoHospedagem -->
 
+    <ShellContent 
+        Title="Sobre"
+        ContentTemplate="{DataTemplate views:Sobre}"
+        Route="Sobre" />
+    <!-- Define a tela para a view Sobre -->
+
 </Shell>
     

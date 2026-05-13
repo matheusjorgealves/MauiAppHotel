@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiAppHotel.Views.ContratacaoHospedagem"
              Title="ContratacaoHospedagem"
-             BackgroundColor="{StaticResource Gray100}">
+             BackgroundColor="{StaticResource Background}">
     
     <VerticalStackLayout VerticalOptions="CenterAndExpand"
                          Padding="10"> <!-- Organiza tudo Verticalmente -->
@@ -13,8 +13,11 @@
             FontSize="50"
             TextColor="{StaticResource Primary}" /> <!-- Vou usar como um título -->
 
-        <Frame Padding="10">
-            <VerticalStackLayout> <!-- Organiza os elementos dentro do Frame -->
+        <Border Padding="10"
+               BackgroundColor="{StaticResource BackgroundDark}">
+            <VerticalStackLayout
+                Padding="10"
+                BackgroundColor="{StaticResource BackgroundDark}"> <!-- Organiza os elementos dentro do Border -->
                 
                 <Grid RowDefinitions="auto, auto"
                       ColumnDefinitions="*, *, 2*"> <!-- Criei um grid para organizar o conteúdo -->
@@ -46,38 +49,55 @@
                              x:Name="stp_criancas"
                              Minimum="0"
                              Maximum="10"
-                             Increment="1" />
+                             Increment="1" /> <!-- X:name serve para nomear essa caixa -->
                 </Grid> <!-- Fim Grid -->
 
-                <Label Text="Escolha sua Suíte"/>
+                <Label Text="Escolha sua Suíte"
+                       Margin="10"
+                       HorizontalTextAlignment="Center"/>
 
                 <Picker x:Name="pck_quarto"
                         Title="Selecione sua acomodação"/> <!-- Opção para selecionar, o x:name serve para capturar a resposta do usuário -->
 
-                <Frame Padding="10"
-                       Margin="10">
-                    <VerticalStackLayout> <!-- Organiza os elementos dentro do Frame na vertical -->
-                        <Label Text="Período da Estadia"/>
+                <Border Padding="10"
+                       Margin="10"
+                       BackgroundColor="{StaticResource BackgroundDark}">
+                    <VerticalStackLayout> <!-- Organiza os elementos dentro do Border na vertical -->
+                        <Label Text="Período da Estadia"
+                                HorizontalTextAlignment="Center"
+                                Margin="10"/>
 
                         <HorizontalStackLayout> <!-- Organiza os elementos que estiverem abaixo do Label na horizontal -->
-                            <Label Text="Check-in: "/> <!-- Check-in -->
+                            <Label Text="Check-in: "
+                                    Margin="10"/> <!-- Check-in -->
                             <DatePicker x:Name="dtpck_checkin"
                                         Format="dd/MM/yyyy" /> <!-- Format serve para organizar a data em dias, mês e ano -->
                         </HorizontalStackLayout>
 
                         <HorizontalStackLayout>
-                            <Label Text="Check-out: "/> <!-- Check-out -->
+                            <Label Text="Check-out: "
+                                    Margin="10"/>
+                            <!-- Check-out -->
                             <DatePicker x:Name="dtpck_checkout"
-                                        Format="dd/MM/yyyy" /> <!-- Data -->
+                                        Format="dd/MM/yyyy" />
+                            <!-- Data -->
                         </HorizontalStackLayout>
-
                     </VerticalStackLayout>
-                </Frame>
+                </Border>
 
-                <Button Text="Avançar" /> <!-- Próxima tela -->
+                <Button Text="Avançar" 
+                        FontSize="20"                        
+                        Margin="5"
+                        BackgroundColor="{StaticResource Secondary}"/> <!-- Próxima tela -->
+
+                <Button Text="Sobre"
+                        FontSize="20"
+                        Margin="5"
+                        BackgroundColor="{StaticResource Secondary}"
+                        Clicked="SobreClicked"/> <!-- Tela Sobre -->
 
             </VerticalStackLayout>
-        </Frame>
+        </Border>
 
     </VerticalStackLayout>
     
